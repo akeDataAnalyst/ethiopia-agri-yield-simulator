@@ -1,1 +1,6 @@
--e "streamlit\npandas\nnumpy\nscikit-learn\njoblib\nmatplotlib" 
+streamlit
+pandas
+numpy
+scikit-learn
+joblib
+matplotlib
