@@ -24,7 +24,3 @@ The project uses synthetic but realistic data representing Ethiopian agriculture
 ## Live Demo
 
 → [Ethiopia Agricultural Yield Simulator](https://ethiopia-agri-yield-simulator-ch4bhwcrxgzagzmwo4nwjt.streamlit.app/)
-
-*(Replace the placeholder link with your actual Streamlit Cloud URL after deployment)*
-
-## Project Structure
