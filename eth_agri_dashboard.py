@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # Load model and data
 model = joblib.load('yield_model.pkl')
 
-# Load your dataset for reference visuals (optional)
+# Load dataset
 df = pd.read_csv('ethiopia_agri_data.csv')
 
 # App Configuration
