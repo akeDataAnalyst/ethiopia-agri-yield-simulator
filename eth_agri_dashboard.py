@@ -1,26 +1,17 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
 import matplotlib.pyplot as plt
 
-# -------------------------------
 # Load model and data
-# -------------------------------
 model = joblib.load('yield_model.pkl')
 
 # Load your dataset for reference visuals (optional)
 df = pd.read_csv('ethiopia_agri_data.csv')
 
-# -------------------------------
 # App Configuration
-# -------------------------------
+
 st.set_page_config(page_title="Ethiopia Agri Yield Simulator", layout="wide")
 st.title("Ethiopia Agricultural Yield Prediction & Intervention Simulator")
 st.markdown("""
@@ -28,9 +19,8 @@ Interactive tool to explore how interventions (rainfall via irrigation, fertiliz
 could boost crop yields in low-performing regions like Afar and Tigray.
 """)
 
-# -------------------------------
 # Sidebar: User Inputs
-# -------------------------------
+
 st.sidebar.header("Simulation Parameters")
 
 # Region selector (for context/display)
@@ -55,9 +45,8 @@ households = st.sidebar.number_input("Households Targeted", value=50000, step=10
 price_per_ton = st.sidebar.number_input("Price per Ton (USD)", value=400, step=50)
 cost_per_ha = st.sidebar.number_input("Intervention Cost per ha (USD)", value=150, step=10)
 
-# -------------------------------
 # Make Prediction
-# -------------------------------
+
 input_data = np.array([[rainfall, fertilizer, market_access]])
 predicted_yield = model.predict(input_data)[0]
 
@@ -74,9 +63,8 @@ extra_value = extra_production * price_per_ton
 total_cost = cost_per_ha * farm_size_ha * households
 roi = ((extra_value - total_cost) / total_cost) * 100 if total_cost > 0 else 0
 
-# -------------------------------
 # Main Content: Results
-# -------------------------------
+
 col1, col2 = st.columns(2)
 
 with col1:
@@ -107,9 +95,8 @@ ax.set_ylabel("Yield (t/ha)")
 ax.set_title("Yield Comparison")
 st.pyplot(fig)
 
-# -------------------------------
 # Insights
-# -------------------------------
+
 st.subheader("Key Insights Recap")
 st.markdown("""
 - **Model R²**: 0.71 → Strong explanatory power  
@@ -123,9 +110,6 @@ st.markdown("**Recommendation**: Prioritize integrated interventions (irrigation
 # Footer
 st.markdown("---")
 st.caption("Portfolio Project by Aklilu Abera")
-
-
-# In[ ]:
 
 
 
